@@ -2,9 +2,8 @@
   "name": "blog_server",
   "version": "1.0.0",
   "description": "data server via node",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +16,14 @@
   },
   "homepage": "https://github.com/spe-shun/blog_server#readme",
   "devDependencies": {
-    "eslint": "^6.1.0"
+    "eslint": "^6.1.0",
+    "prettier": "^1.18.2"
+  },
+  "dependencies": {
+    "@koa/cors": "^3.0.0",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "markdown-it": "^9.1.0"
   }
 }
