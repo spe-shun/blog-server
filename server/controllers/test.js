@@ -1,6 +1,6 @@
 let base = async (ctx, next) => {
   ctx.response.status = 200
-  ctx.response.body = '<h1>Index</h1>'
+  ctx.response.body = '<h1>Node root dir</h1>'
   // await next()
 }
 
@@ -13,3 +13,4 @@ module.exports = {
   'GET /': base,
   'GET /hello/:name': fallback,
 }
+
