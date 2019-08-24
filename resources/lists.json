@@ -1,9 +1,45 @@
 {
   "content": [
     {
+      "title": "JS code 插件",
+      "discribe": "暂时只有鼠标点击飘字的特效，插入代码可用",
+      "date": "2019-08-18T00:00:00.000Z",
+      "link": "js_effect",
+      "tag": ["学习"]
+    },
+    {
+      "title": "视频下载可用软件",
+      "discribe": "当IDM不能用的时候的补全手段",
+      "date": "2019-08-16T00:00:00.000Z",
+      "link": "download_video",
+      "tag": ["娱乐"]
+    },
+    {
+      "title": "设计模式",
+      "discribe": "感觉这位博主讲的特别好~八一八学一学",
+      "date": "2019-07-18T00:00:00.000Z",
+      "link": "design_mode",
+      "tag": ["学习"]
+    },
+    {
+      "title": "github资源收集专栏",
+      "discribe": "下载东西是相当重要的~",
+      "date": "2019-07-16T00:00:00.000Z",
+      "link": "github_resources",
+      "tag": ["娱乐"],
+      "pic": "github.png"
+    },
+    {
+      "title": "js变量名转换为驼峰命名风格",
+      "discribe": "要修改的文件内容繁杂，变量名很多，手动修改不能接受，此外我还担心手动替换会影响到不该改的地方,可以借此Babel工具一用",
+      "date": "2019-06-16T00:00:00.000Z",
+      "link": "babel_transfer_var",
+      "tag": ["学习"]
+    },
+    {
       "title": "排序算法",
       "discribe": "js基本排序算法实现",
-      "date": "2019-08-10T00:00:00.000Z",
+      "date": "2019-05-10T00:00:00.000Z",
       "link": "sort",
       "tag": ["学习"]
     },
