@@ -8,6 +8,7 @@ const picturePath = path.resolve(process.cwd(), 'resources', 'img')
 
 let pages = async ctx => {
   try {
+    console.log('file:', `${blogPath}/${ctx.params.name}.md`)
     const data = fs.readFileSync(`${blogPath}/${ctx.params.name}.md`, 'utf-8')
     ctx.response.body = md.render(data)
   } catch (error) {
@@ -28,6 +29,7 @@ let pageList = async ctx => {
 
 let Img = async ctx => {
   try {
+    console.log('file:', `${picturePath}/${ctx.params.img}`)
     const data = fs.readFileSync(`${picturePath}/${ctx.params.img}`)
     ctx.set('Access-Control-Allow-Origin', '*')
     ctx.response.body = data
