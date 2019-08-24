@@ -17,7 +17,6 @@ const md = new MarkdownIt()
 let pages = async ctx => {
   try {
     console.log(rootDir + '/blog/' + ctx.params.name + '.md')
-    ctx.set('Access-Control-Allow-Origin', '*')
     const data = fs.readFileSync(rootDir + '/blog/' + ctx.params.name + '.md', 'utf-8')
     ctx.response.body = md.render(data)
   } catch (error) {
@@ -30,7 +29,6 @@ let pages = async ctx => {
 let pageList = async ctx => {
   try {
     const data = fs.readFileSync(`${rootDir}/lists.json`, 'utf-8')
-    ctx.set('Access-Control-Allow-Origin', '*')
     ctx.response.body = data
   } catch (error) {
     ctx.response.body = '<h1>404 NOT FOUND<h1/>'
@@ -41,7 +39,6 @@ let Img = async ctx => {
   try {
     console.log(rootDir + '/img/' + ctx.params.img)
     const data = fs.readFileSync(rootDir + '/img/' + ctx.params.img)
-    ctx.set('Access-Control-Allow-Origin', '*')
     ctx.response.body = data
   } catch (error) {
     ctx.response.status = 404
