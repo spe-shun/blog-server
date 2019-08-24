@@ -1,0 +1,4 @@
+&lt;!-- To include only some csshake animations use this syntax --&gt;
+&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"csshake-slow.min.css\"&gt;
+&lt;!-- or from surge.sh --&gt;
+&lt;link rel=\"stylesheet\" type=\"text/css\" href=\"http://csshake.surge.sh/csshake-slow.min.css\"&gt;
