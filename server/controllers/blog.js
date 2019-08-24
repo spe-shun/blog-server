@@ -3,8 +3,8 @@ const path = require('path')
 const MarkdownIt = require('markdown-it')
 
 const md = new MarkdownIt()
-const blogPath = path.resolve(process.cwd(), 'resources', 'blog')
-const picturePath = path.resolve(process.cwd(), 'resources', 'img')
+const blogPath = path.resolve(__dirname, 'resources', 'blog')
+const picturePath = path.resolve(__dirname, 'resources', 'img')
 
 let pages = async ctx => {
   try {
@@ -20,7 +20,7 @@ let pages = async ctx => {
 
 let pageList = async ctx => {
   try {
-    const data = fs.readFileSync('resources/list.json', 'utf-8')
+    const data = fs.readFileSync('./resources/lists.json', 'utf-8')
     ctx.response.body = data
   } catch (error) {
     ctx.response.body = '<h1>404 NOT FOUND<h1/>'
@@ -29,6 +29,9 @@ let pageList = async ctx => {
 
 let Img = async ctx => {
   try {
+    console.log(__dirname)
+    console.log(__filename)
+    console.log(process.cwd())
     console.log('file:', `${picturePath}/${ctx.params.img}`)
     const data = fs.readFileSync(`${picturePath}/${ctx.params.img}`)
     ctx.set('Access-Control-Allow-Origin', '*')
