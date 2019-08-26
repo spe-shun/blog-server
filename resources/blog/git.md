@@ -132,11 +132,11 @@ chore：构建过程或辅助工具的变动
 
 ```bash
 # 设置全局用户名和邮箱
-git config --global user.name "shunyu"
-git config --global user.email "yangshunyu.1994@gmail.com"
+git config --global user.name "name"
+git config --global user.email "user@email"
 # 设置局部用户名和邮箱 在有git仓库的地方才可以
-git config user.name "shunyu"
-git config user.email "yangshunyu.1994@gmail.com"
+git config user.name "name"
+git config user.email "user@email"
 #查看配置
 git config --list
 #查看手册
