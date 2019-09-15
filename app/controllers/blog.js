@@ -1,22 +1,19 @@
 const fs = require('fs')
-// const path = require('path')
+const path = require('path')
 const MarkdownIt = require('markdown-it')
 
-const isDev = process.env.NODE_ENV === 'development'
-let rootDir
-console.log('isDev:', isDev)
-
-if (isDev) {
-  rootDir = `${process.cwd()}/resources`
-} else {
-  rootDir = '/usr/share/nginx/blog-server/resources'
-}
+let rootDir = path.resolve(__dirname, '..')
+// if (process.env.NODE_ENV === 'production') {
+//   rootDir = `${process.cwd()}/resources`
+// } else {
+//   rootDir = '/usr/share/nginx/blog-server/resources'
+// }
 
 const md = new MarkdownIt()
 
 let pages = async ctx => {
   try {
-    console.log(rootDir + '/blog/' + ctx.params.name + '.md')
+    // console.log(rootDir + '/blog/' + ctx.params.name + '.md')
     const data = fs.readFileSync(rootDir + '/blog/' + ctx.params.name + '.md', 'utf-8')
     ctx.response.body = md.render(data)
   } catch (error) {
@@ -37,7 +34,7 @@ let pageList = async ctx => {
 
 let Img = async ctx => {
   try {
-    console.log(rootDir + '/img/' + ctx.params.img)
+    // console.log(rootDir + '/img/' + ctx.params.img)
     const data = fs.readFileSync(rootDir + '/img/' + ctx.params.img)
     ctx.response.body = data
   } catch (error) {

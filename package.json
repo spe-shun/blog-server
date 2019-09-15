@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "data server via node",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "NODE_ENV=production node server/index.js",
+    "dev": "NODE_ENV=development node server/index.js"
   },
   "repository": {
     "type": "git",

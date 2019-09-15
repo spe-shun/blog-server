@@ -11,7 +11,7 @@
         "NODE_ENV": "development"
       },
       "name": "Launch Program",
-      "program": "${workspaceFolder}/server/index.js"
+      "program": "${workspaceFolder}/app/index.js"
     }
   ]
 }

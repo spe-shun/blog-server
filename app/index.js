@@ -3,7 +3,7 @@ const app = new Koa()
 
 //中间件
 // const serve = require('koa-static')
-// const cors = require('@koa/cors')
+const cors = require('@koa/cors')
 
 const port = 3366
 const router = require('./router')
@@ -17,7 +17,7 @@ let notFound = async ctx => {
 }
 
 // app.use(serve(__dirname))
-// app.use(cors({ origin: '*' }))
+app.use(cors({ origin: '*' }))
 app.use(router.routes())
 
 app.use(notFound)
