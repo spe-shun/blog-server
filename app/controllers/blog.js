@@ -2,20 +2,23 @@ const fs = require('fs')
 const path = require('path')
 const MarkdownIt = require('markdown-it')
 
-let rootDir = path.resolve(__dirname, '..')
-// if (process.env.NODE_ENV === 'production') {
-//   rootDir = `${process.cwd()}/resources`
-// } else {
-//   rootDir = '/usr/share/nginx/blog-server/resources'
-// }
+let rootDir = path.resolve(__dirname, '../../resources')
+
+let env = process.env.NODE_ENV
 
 const md = new MarkdownIt()
 
 let pages = async ctx => {
   try {
-    // console.log(rootDir + '/blog/' + ctx.params.name + '.md')
+    console.log(rootDir + '/blog/' + ctx.params.name + '.md')
     const data = fs.readFileSync(rootDir + '/blog/' + ctx.params.name + '.md', 'utf-8')
-    ctx.response.body = md.render(data)
+    let pageContent = md.render(data)
+    if (env === 'production') {
+      ctx.response.body = pageContent.replace(/localhost:3366/, 'www.wtfquantum.live')
+    }
+    if (env === 'development') {
+      ctx.response.body = pageContent
+    }
   } catch (error) {
     ctx.response.body = '<h1>404 NOT FOUND<h1/>'
   }
@@ -25,6 +28,7 @@ let pages = async ctx => {
 
 let pageList = async ctx => {
   try {
+    console.log('pagelist:', `${rootDir}/lists.json`)
     const data = fs.readFileSync(`${rootDir}/lists.json`, 'utf-8')
     ctx.response.body = data
   } catch (error) {
@@ -44,7 +48,7 @@ let Img = async ctx => {
 }
 
 module.exports = {
-  'GET /static/pagelist': pageList,
-  'GET /static/blog/:name': pages,
-  'GET /static/picture/:img': Img,
+  'GET /api/pagelist': pageList,
+  'GET /api/blog/:name': pages,
+  'GET /api/picture/:img': Img,
 }

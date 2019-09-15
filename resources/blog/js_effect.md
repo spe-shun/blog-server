@@ -40,4 +40,4 @@
 ```
 
 e.g.
-![示例图片](http://149.248.7.28/static/picture/js_effect_1.png)
+![示例图片](http://localhost:3366/api/picture/js_effect_1.png)
