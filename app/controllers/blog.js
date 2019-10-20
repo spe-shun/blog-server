@@ -10,7 +10,7 @@ const md = new MarkdownIt()
 
 let pages = async ctx => {
   try {
-    // ctx.set('Access-Control-Allow-Origin', '*')
+    // ctx.set('Access-Controlllow-Origin', '*')
     console.log(rootDir + '/blog/' + ctx.params.name + '.md')
     const data = fs.readFileSync(rootDir + '/blog/' + ctx.params.name + '.md', 'utf-8')
     let pageContent = md.render(data)
@@ -21,7 +21,7 @@ let pages = async ctx => {
       ctx.response.body = pageContent
     }
   } catch (error) {
-    ctx.response.body = '<h1>404 NOT FOUND<h1/>'
+    ctx.response.body = '<h1>no such pages<h1/>'
   }
 
   // console.log(ctx.params.name)
@@ -34,7 +34,7 @@ let pageList = async ctx => {
     const data = fs.readFileSync(`${rootDir}/lists.json`, 'utf-8')
     ctx.response.body = data
   } catch (error) {
-    ctx.response.body = '<h1>404 NOT FOUND<h1/>'
+    ctx.response.body = '<h1>no such lists<h1/>'
   }
 }
 
@@ -46,7 +46,7 @@ let Img = async ctx => {
     ctx.response.body = data
   } catch (error) {
     ctx.response.status = 404
-    ctx.response.body = '<h1>no such picture</h1>'
+    ctx.response.body = '<h1>no such pictures</h1>'
   }
 }
 
