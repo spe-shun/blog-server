@@ -10,7 +10,7 @@ const md = new MarkdownIt()
 
 let pages = async ctx => {
   try {
-    ctx.set('Access-Control-Allow-Origin', '*')
+    // ctx.set('Access-Control-Allow-Origin', '*')
     console.log(rootDir + '/blog/' + ctx.params.name + '.md')
     const data = fs.readFileSync(rootDir + '/blog/' + ctx.params.name + '.md', 'utf-8')
     let pageContent = md.render(data)
@@ -28,7 +28,7 @@ let pages = async ctx => {
 }
 
 let pageList = async ctx => {
-  ctx.set('Access-Control-Allow-Origin', '*')
+  // ctx.set('Access-Control-Allow-Origin', '*')
   try {
     console.log('pagelist:', `${rootDir}/lists.json`)
     const data = fs.readFileSync(`${rootDir}/lists.json`, 'utf-8')
@@ -39,7 +39,7 @@ let pageList = async ctx => {
 }
 
 let Img = async ctx => {
-  ctx.set('Access-Control-Allow-Origin', '*')
+  // ctx.set('Access-Control-Allow-Origin', '*')
   try {
     // console.log(rootDir + '/img/' + ctx.params.img)
     const data = fs.readFileSync(rootDir + '/img/' + ctx.params.img)
