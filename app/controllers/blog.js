@@ -21,6 +21,7 @@ let pages = async ctx => {
       ctx.response.body = pageContent
     }
   } catch (error) {
+    ctx.response.status = 404
     ctx.response.body = '<h1>no such pages<h1/>'
   }
 
@@ -34,6 +35,7 @@ let pageList = async ctx => {
     const data = fs.readFileSync(`${rootDir}/lists.json`, 'utf-8')
     ctx.response.body = data
   } catch (error) {
+    ctx.response.status = 404
     ctx.response.body = '<h1>no such lists<h1/>'
   }
 }
